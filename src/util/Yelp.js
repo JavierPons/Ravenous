@@ -1,10 +1,12 @@
-const clientId = 'T6fLamDIKEIJ_vqsK3DgAg';
-const secret = 'lAdoOEdrtIL2BoKgKquZiE8btvvBLqSPzE8v41clKmoAsR2qW0w1F6p5mDtpD1bN';
-let accessToken = '';
+const clientId = '8-z8uUsHDsadhqXfugMtTw';
+const secret = 'EI5T2qGAkzuKRkYOFXMIBdI9unGZgfNs7SIiCTdhD5PeFRzjrtxeqVCczkjac286L8W1uFGuGS13pmOmoWBrofJp_wr_B5bEg_45nVt5EvDySrqu5GRdOMnEJ9S8WnYx';
+let accessToken;
 
 
 const Yelp = {
-  getAccessToken() {
+  getAccessToken: function() {
+    
+  
     if (accessToken) {
       return new Promise(resolve => 
         resolve(accessToken));
@@ -22,7 +24,7 @@ const Yelp = {
   search(term, location, sortBy) {
     return Yelp.getAccessToken().then(() => {
        return fetch(`https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=${term}&location=${location}&sort_by=${sortBy}`, {
-        headers: { Authorization: `Bearer ${accessToken}` 
+        headers: { Authorization: `Bearer ${secret}` 
       }
      
       
